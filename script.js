@@ -1,4 +1,3 @@
-
 const bill = document.getElementById('bill');
 const customInput = document.querySelector('.button.input');
 const buttons = document.querySelectorAll('.button');
@@ -7,45 +6,55 @@ const outTipAmount = document.getElementById('tip-amount')
 const outTotalPrice = document.getElementById('total');
 const resetBtn = document.querySelector('.resetBtn');
 
-function calculateTip() {
-  const value = parseFloat(bill.value);
-  const numberOfPeople = parseInt(numbOfPeople.value);
 
-  if (isNaN(value) || isNaN(numberOfPeople)) {
-    return;
+
+
+
+
+bill.addEventListener("input", function() {
+  let value = parseFloat(bill.value); 
+
+
+//   Reset Btn control
+  if (bill.value !== '') {
+   resetBtn.disabled = false;
+  } else {
+  resetBtn.disabled = true;
   }
 
-  const selectedButton = document.querySelector('.button.active');
-  const tipPercentage = parseInt(selectedButton.value);
+  resetBtn.addEventListener('click', () => {
+    location.reload();
+  });
 
-  const tipAmount = (tipPercentage / 100) * value;
-  const totalAmount = value + tipAmount;
-  const amountPerPerson = (totalAmount / numberOfPeople).toFixed(2);
-  const tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tipPercentage = parseInt(button.value);
+      const tipAmount = (tipPercentage / 100) * value;
+      const totalAmount = value + tipAmount;
+      const numberOfPeople = parseInt(numbOfPeople.value);
+      const amountPerPerson = (totalAmount / numberOfPeople).toFixed(2);
+      const tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
+    
+        
+    outTipAmount.textContent = tipPerPerson;
+    outTotalPrice.textContent = amountPerPerson;
 
-  outTipAmount.textContent = tipPerPerson;
-  outTotalPrice.textContent = amountPerPerson;
-}
 
-bill.addEventListener("input", calculateTip);
-customInput.addEventListener("input", calculateTip);
-numbOfPeople.addEventListener("input", calculateTip);
+    
+    });
+  });
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    buttons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    calculateTip();
+  customInput.addEventListener('input', () => {
+    const customValue = parseFloat(customInput.value);
+    const tipAmount = (customValue / 100) * value;
+    const totalAmount = value + tipAmount;
+    const numberOfPeople = parseInt(numbOfPeople.value);
+    const amountPerPerson = (totalAmount / numberOfPeople).toFixed(2);
+    const tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
+
+    outTipAmount.textContent = tipPerPerson;
+    outTotalPrice.textContent = amountPerPerson;
+
   });
 });
-
-resetBtn.addEventListener('click', () => {
-  location.reload();
-});
-
-
-
-
-
-
 
