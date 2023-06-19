@@ -1,0 +1,304 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Strong cyan: hsl(172, 67%, 45%)
+
+### Neutral
+
+- Very dark cyan: hsl(183, 100%, 15%)
+- Dark grayish cyan: hsl(186, 14%, 43%)
+- Grayish cyan: hsl(184, 14%, 56%)
+- Light grayish cyan: hsl(185, 41%, 84%)
+- Very light grayish cyan: hsl(189, 41%, 97%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (form inputs): 24px
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+/* color */
+:root {
+    --light-color: hsl(186, 14%, 43%);
+    --dark-color: hsl(183, 100%, 15%);
+    --text-color: hsl(184, 14%, 56%);
+    --bg-color: hsl(185, 41%, 84%);
+    --very-light-color: hsl(189, 41%, 97%);
+    --white-color: hsl(0, 0%, 100%);
+}
+
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+html,
+body {
+    min-width: 100%;
+    height: 100%;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+}
+
+
+.h1 {
+    padding-bottom: 4rem;
+    color: var(--dark-color);
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    background-color: var(--white-color);
+    border-radius: 18px;
+    padding: 3rem;
+    font-family: 'Space Mono', monospace;
+
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    border-radius: 8px;
+    border: 0;
+    margin: 5px;
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--bg-color);
+    color: var(--dark-color);
+}
+
+
+.left-side {
+
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.right-side {
+    border-radius: 14px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.button.input {
+    background-color: var(--bg-color);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+form {
+    padding: 1rem;
+}
+
+.custom-input {
+    width: 100%;
+    height: 40px;
+    padding: 0 1rem 0 2rem;
+    border: 0;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    text-align: end;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark-color);
+}
+
+input:focus {
+    outline: 2px solid var(--dark-color);
+}
+
+input::placeholder {
+    color: var(--text-color);
+}
+
+
+.left-side h3 {
+    color: var(--text-color);
+    font-size: 16px;
+    margin: .5rem 0;
+}
+
+
+
+
+#bill-dollar {
+    position: relative;
+
+}
+
+#bill-dollar::after {
+    position: absolute;
+    content: '';
+    background-image: url(./images/icon-dollar.svg);
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 10px;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+}
+
+#numb-div {
+
+    position: relative;
+}
+
+
+
+
+
+#numb-div::after {
+    position: absolute;
+    content: '';
+    background-image: url(./images/icon-person.svg);
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 10px;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.person {
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    color: var(--bg-color);
+    font-size: 40px;
+}
+
+.right-side h3 {
+    font-size: 16px;
+    margin-top: 1rem 0;
+}
+
+.resetBtn:disabled {
+    width: 100%;
+    height: 50px;
+    background-color: var(--light-color);
+    border: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--dark-color);
+    cursor: not-allowed;
+
+}
+
+.resetBtn:not(:disabled) {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 50px;
+    border: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+.resetBtn:not(:disabled):hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+
+/* breakpoint for mobile */
+@media (max-width: 478px) {
+    .h1 {
+        padding-bottom: 0;
+        margin-top: 3rem;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .left-side {
+        flex: 1;
+    }
+
+    .right-side {
+        flex: 1;
+        margin-top: 2rem;
+    }
+
+
+}

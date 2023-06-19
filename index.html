@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1 class="h1">SPLI <br>TTER</h1>
+    <main>
+        <!-- left -->
+        <section class="left-side">
+            <form method="post">
+                <div class="bill-box">
+                    <h3>Bill</h3>
+                    <div id="bill-dollar"> <input class="custom-input" name="bill" id="bill" type="number"
+                            placeholder="0"></div>
+
+                </div>
+
+                <div class="select-bill">
+                    <h3>Select Tip %</h3>
+                    <div class="buttons">
+                        <input type="button" class="button" value="5%">
+                        <input type="button" class="button" value="10%">
+                        <input type="button" class="button" value="15%">
+                        <input type="button" class="button" value="25%">
+                        <input type="button" class="button" value="50%">
+                        <input type="number" class="button input" placeholder="Custom">
+                    </div>
+                </div>
+
+                <div class="people">
+                    <h3>Number of People</h3>
+                    <div id="numb-div">
+                        <input class="custom-input" type="number" placeholder="0" id="numbPeople">
+
+
+                    </div>
+
+                </div>
+            </form>
+
+        </section>
+        <!-- right -->
+        <section class="right-side">
+            <div class="content">
+                <div class="amount">
+                    <h3>Tip Amount <br> <span class="person">/ person</span></h3>
+                    <h2 class="price" id="tip-amount">$0.00</h2>
+                </div>
+
+                <div class="total">
+                    <h3>Total <br><span class="person">/ person</span></h3>
+                    <h2 class="price" id="total">$0.00</h2>
+                </div>
+            </div>
+
+            <button class="resetBtn" disabled>reset</button>
+        </section>
+
+    </main>
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
